@@ -1,6 +1,5 @@
 const isLoggedIn = (req, res, next) => {
-  // console.log("@@@isLoggedIn")
-  // console.log("req.user", req.user);
+  // checking passport serializer set user obj on request
   if (req.user) {
     next();
   } else {
