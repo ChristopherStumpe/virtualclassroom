@@ -46,11 +46,8 @@ app.get("/account", isLoggedIn, (req, res) => {
 });
 
 app.get("/logout", (req, res) => {
-  // console.log(`Serving ${req.method} at ${req.url}`);
   req.session = null; //destory the session
   req.logOut(); // logout from passport
-  // console.log(`cookie ${req.cookies}`) // the cookie should have the entire user info
-  // console.log(`session ${req.session}`) // the cookie should have the entire user info
   res.redirect("/"); // send them to where is needed
 });
 
