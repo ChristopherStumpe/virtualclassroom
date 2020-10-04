@@ -1,0 +1,1 @@
+// Initial location for react components to be added to index.html's "root" div
