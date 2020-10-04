@@ -12,7 +12,7 @@ require("dotenv").config();
 app.use(
   cookieSession({
     name: "user",
-    keys: ["key1"],
+    keys: [process.env.COOKIE_SESSION_KEY],
   })
 );
 
