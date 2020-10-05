@@ -4,15 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pretest": "./node_modules/.bin/eslint --ignore .gitignore",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server/index.js",
+    "pretest": "./node_modules/.bin/eslint --ignore .gitignore",
+    "test-db": "node server/test/test.js",
     "dev": "webpack -d --watch",
     "build": "webpack -p"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run pretest"
+      "pre-commit": "npm run test-db && npm run pretest"
     }
   },
   "repository": {
@@ -36,6 +37,7 @@
     "nodemon": "^2.0.4",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0",
+    "pg": "^8.4.0",
     "path": "^0.12.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
