@@ -1,11 +1,14 @@
 /* eslint-disable no-console */
-const express = require("express");
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+
 const app = express();
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 require("./auth/passport.setup");
 const { isLoggedIn } = require("./auth/verifyLogIn");
-const cors = require("cors");
 require("dotenv").config();
 
 // Cookies and Session info
@@ -31,6 +34,18 @@ const passportRouter = require("./auth/routes");
 // require('./db/db');
 
 const PORT = process.env.SERVER_PORT || 8080;
+
+const DIST_DIR = path.join(__dirname, '../dist');
+const HTML_FILE = path.join(DIST_DIR, 'index.html');
+
+// Middleware
+app.use(cors());
+app.use(express.json());
+app.use(express.static(DIST_DIR));
+
+app.get('/', (req, res) => {
+  res.sendFile(HTML_FILE);
+});
 
 // Routes //
 // app.use('/teacher', teacherRouter);
