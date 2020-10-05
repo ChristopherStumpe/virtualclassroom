@@ -3,4 +3,5 @@ node_js:
   # node latest stable Node.js release
   - node
 script:
+  # https://docs.npmjs.com/cli/ci.html
   - npm ci
