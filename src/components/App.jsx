@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 function App() {
-  const [account, setCount] = useState("logged out");
+  const [account, setCount] = useState('logged out');
 
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
@@ -11,13 +11,15 @@ function App() {
 
   return (
     <div>
-      <p>You are {account}</p>
+      <p>
+        You are
+        {account}
+      </p>
       <button
-        onClick={() =>
-          account === "logged out"
-            ? setCount("logged in")
-            : setCount("logged out")
-        }
+        type="button"
+        onClick={() => (account === 'logged out'
+          ? setCount('logged in')
+          : setCount('logged out'))}
       >
         click me
       </button>
