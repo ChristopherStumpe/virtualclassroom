@@ -9,7 +9,6 @@ const cookieSession = require("cookie-session");
 const passport = require("passport");
 require("./auth/passport.setup");
 const { isLoggedIn } = require("./auth/verifyLogIn");
-const cors = require("cors");
 require("dotenv").config();
 
 // Cookies and Session info
