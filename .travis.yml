@@ -1,15 +1,7 @@
----
 language: node_js
 node_js:
+  # node latest stable Node.js release
   - node
-  - lts/*
-cache:
-  directories:
-    - ~/.npm
-    - .jest
-before_script:
-  - npm install -g npm@latest
 script:
+  # https://docs.npmjs.com/cli/ci.html
   - npm ci
-  - npx jest --ci
-  - npm run travis
