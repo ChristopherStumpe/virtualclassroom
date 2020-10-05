@@ -4,9 +4,9 @@ An app to help you be the best educator you can be.
 
 ## Team
 
-- **Product Owner**: (Backend, Frontend, Design)
-- **Scrum Master**: Brianna Skinner (Backend, Frontend, Design)
-- **Lead Engineer**: (Backend, Frontend, Design)
+- **Product Owner**: Christopher Stumpe (Database, Design)
+- **Scrum Master**: Brianna Skinner (Backend, Frontend)
+- **Lead Engineer**: Gregory Thompson (Deployment, Frontend)
 
 ## Table of Contents
 
@@ -26,7 +26,7 @@ An app to help you be the best educator you can be.
 
 > Teachers can add classes, assignments, announcements, and students to their roster
 
-> Assignment and annoucements have customizable release times
+> Assignment and announcements have customizable release times
 
 ## <a name="wireframe"></a>2. App Wireframe
 
@@ -55,7 +55,7 @@ Setting up a development environment requires global installations of the latest
 On the command prompt run the following commands
 
 ```sh
-$ git clone https://github.com/VS-Rock/virtualclassroom.git
+$ git clone git@github.com:your-username/virtualclassroom.git
 
 $ cd virtualclassroom/
 
