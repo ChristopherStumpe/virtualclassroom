@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from 'react';
 
 function App() {
-  const [account, setCount] = useState('logged out');
+  const [isOnline, setIsOnline] = useState('logged out');
+  useEffect(() => {
+    document.title = `You are ${isOnline}`;
+  });
 
   // Similar to componentDidMount and componentDidUpdate:
-  useEffect(() => {
-    // Update the document title using the browser API
-    document.title = `You are ${account}`;
-  });
 
   return (
     <div>
       <p>
         You are
-        {account}
+        {isOnline}
       </p>
       <button
         type="button"
-        onClick={() => (account === 'logged out'
-          ? setCount('logged in')
-          : setCount('logged out'))}
+        onClick={() => (isOnline === 'logged out'
+          ? setIsOnline('logged in')
+          : setIsOnline('logged out'))}
       >
         click me
       </button>
