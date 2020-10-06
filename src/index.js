@@ -3,5 +3,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App';
+require("@babel/polyfill");
 
 ReactDOM.render(<App />, document.getElementById('root'));
