@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import AnnouncementList from './allUsers/AnnouncementList';
 
 export default function StudSplashScreen({ name }) {
   return (
@@ -9,6 +10,7 @@ export default function StudSplashScreen({ name }) {
         {' '}
         {name}
       </h1>
+      <AnnouncementList />
     </div>
   );
 }
