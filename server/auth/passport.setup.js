@@ -1,14 +1,14 @@
 // Import passport and Google OAuth 2.0
-const passport = require("passport");
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
-require("dotenv").config();
+const passport = require('passport');
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
+require('dotenv').config();
 
-passport.serializeUser(function (user, done) {
+passport.serializeUser((user, done) => {
   // Setting user obj on req.session
   done(null, user);
 });
 
-passport.deserializeUser(function (user, done) {
+passport.deserializeUser((user, done) => {
   // present user obj to use to find things in the db
   const data = {
     id: user.id,
@@ -43,6 +43,6 @@ passport.use(
       // if the user doesn't exists, save to db, else selected the user and pass them to the done function
       // signal that this is done
       return done(null, profile);
-    }
-  )
+    },
+  ),
 );
