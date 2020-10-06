@@ -1,31 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-function SplashScreen() {
-  const [account, setCount] = useState('logged out');
-
-  // Similar to componentDidMount and componentDidUpdate:
-  useEffect(() => {
-    // Update the document title using the browser API
-    document.title = `You are ${account}`;
-  });
-
+export default function TeachSplashScreen({ name }) {
   return (
     <div>
-      You are at the splash screen
-      <p>
-        You are
-        {account}
-      </p>
-      <button
-        type="button"
-        onClick={() => (account === 'logged out'
-          ? setCount('logged in')
-          : setCount('logged out'))}
-      >
-        click me
-      </button>
+      <h1>
+        Hello Mr. or Mrs.
+        {' '}
+        {name}
+      </h1>
     </div>
   );
 }
 
-export default SplashScreen;
+TeachSplashScreen.propTypes = {
+  name: PropTypes.string,
+};
+
+TeachSplashScreen.defaultProps = {
+  name: '',
+};
