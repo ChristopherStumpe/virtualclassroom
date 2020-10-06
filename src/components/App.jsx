@@ -1,21 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import TeachSplashScreen from './TeachSplashScreen';
 import StudSplashScreen from './StudSplashScreen';
 
 export default function App() {
-  const [user, setUser] = useState(null);
-  const viewRender = (e) => {
-    if (e.target.name === 'teacher') {
-      setUser(e.target.name);
-      console.log(e.target.name);
-    } else if (e.target.name === 'student') {
-      setUser(e.target.name);
-      console.log(e.target.name);
-    } else if (e.target.name === 'logout') {
-      setUser(null);
-      console.log(e.target.name);
-    }
+  const [view, setView] = useState('');
+  const [data, setData] = useState(null);
+
+  const grabData = () => new Promise((resolve) => {
+    console.log('grabData');
+    const result = {
+      user: 'student',
+      id: 123,
+      fullName: 'John Doe',
+      idSchool: 1,
+      email: 'johndone@fake.news',
+      created_at: new Date(),
+    };
+    resolve(result);
+  });
+
+  const handleLogInClick = () => {
+    console.log('login');
+    const fetchData = async () => {
+      const obj = await grabData();
+      setData(obj);
+      setView(obj.user);
+    };
+    fetchData();
   };
+
+  useEffect(() => {});
   // on login click
   // direct users to a page based off of the type of user they are
   // check if they are a teacher or student
@@ -26,29 +40,22 @@ export default function App() {
   return (
     <div>
       <button
-        name="teacher"
+        name="login"
         type="button"
-        onClick={viewRender}
+        onClick={handleLogInClick}
       >
-        teacher login
-      </button>
-      <button
-        name="student"
-        type="button"
-        onClick={viewRender}
-      >
-        student login
+        login
       </button>
       <button
         name="logout"
         type="button"
-        onClick={viewRender}
+        onClick={() => setView('logout')}
       >
         logout
       </button>
       <div>
-        {user === 'teacher' && <TeachSplashScreen />}
-        {user === 'student' && <StudSplashScreen />}
+        {view === 'teacher' && <TeachSplashScreen />}
+        {view === 'student' && <StudSplashScreen student={data} />}
       </div>
     </div>
   );
