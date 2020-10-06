@@ -17,7 +17,7 @@ export default function App() {
   const grabData = () => new Promise((resolve) => {
     console.log('grabData');
     const result = {
-      user: 'teacher',
+      user: 'student',
       id: 123,
       fullName: 'John Doe',
       idSchool: 1,
@@ -33,6 +33,7 @@ export default function App() {
       const obj = await grabData();
       setData(obj);
       setView(obj.user);
+      // setTimeout(() => console.log("view", view, "data", data), 5000);
     };
     fetchData();
   };
