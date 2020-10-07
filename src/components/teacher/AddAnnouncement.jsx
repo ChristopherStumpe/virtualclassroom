@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import DOMPurify from 'dompurify';
 
 export default function AddAnnouncement() {
-  const [announcement, setAnnouncement] = useState('');
   const [showForm, setShowForm] = useState(false);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -10,16 +9,17 @@ export default function AddAnnouncement() {
   const [expirationDate, setExpirationDate] = useState('');
 
   const addAnnouncement = () => {
+    const date = new Date();
     // post request to server to add announcement
-    console.log({
+    const formSubmit = {
       title,
       description,
       releaseTime,
       expirationDate,
-      createdAt: Date.now(),
-    });
+      createdAt: date,
+    };
+    console.log(formSubmit);
     alert('submitted');
-    setAnnouncement('');
     setShowForm(false);
   };
 
@@ -78,6 +78,7 @@ export default function AddAnnouncement() {
                 }}
               />
             </label>
+            <button type="submit">Submit</button>
           </form>
         )
         : (<button type="button" onClick={() => setShowForm(true)}>Add Announcement</button>)}
