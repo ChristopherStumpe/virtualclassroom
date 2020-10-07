@@ -14,7 +14,7 @@ export default function TeachSplashScreen({ name, user }) {
       </h1>
       <AnnouncementList user={user} />
       <AssignmentList user={user} />
-      <ClassList />
+      <ClassList user={user} />
     </div>
   );
 }

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
+import PropTypes from 'prop-types';
+import AddClass from '../teacher/AddClass';
 
-export default function ClassList() {
+export default function ClassList({ user }) {
   const [list, setList] = useState([]);
   const data = [
     {
@@ -37,6 +39,7 @@ export default function ClassList() {
   }, []);
   return (
     <div>
+      {user === 'teacher' && <AddClass />}
       {list.length > 0
         && (
         <ul>
@@ -51,3 +54,10 @@ export default function ClassList() {
     </div>
   );
 }
+AddClass.propTypes = {
+  user: PropTypes.string,
+};
+
+AddClass.defaultProps = {
+  user: '',
+};
