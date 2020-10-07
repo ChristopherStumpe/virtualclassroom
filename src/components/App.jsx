@@ -17,7 +17,7 @@ export default function App() {
   const grabData = () => new Promise((resolve) => {
     console.log('grabData');
     const result = {
-      user: 'student',
+      user: 'teacher',
       id: 123,
       fullName: 'John Doe',
       idSchool: 1,
@@ -59,8 +59,8 @@ export default function App() {
         logout
       </button>
       <div>
-        {view === 'teacher' && <TeachSplashScreen name={data.fullName} />}
-        {view === 'student' && <StudSplashScreen name={data.fullName} />}
+        {view === 'teacher' && <TeachSplashScreen name={data.fullName} user={data.user} />}
+        {view === 'student' && <StudSplashScreen name={data.fullName} user={data.user} />}
       </div>
     </div>
   );
