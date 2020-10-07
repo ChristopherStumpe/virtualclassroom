@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
+import PropTypes from 'prop-types';
+import AddAnnouncement from '../teacher/AddAnnouncement';
 
-export default function AnnouncementList() {
+export default function AnnouncementList({ user }) {
   const [list, setList] = useState([]);
   const data = [
     {
@@ -28,12 +30,13 @@ export default function AnnouncementList() {
     console.log(result);
     setList(result);
   };
-  
+
   useEffect(() => {
     fetchData();
   }, []);
   return (
     <div>
+      {user === 'teacher' && <AddAnnouncement />}
       {list.length > 0
         && (
         <ul>
@@ -48,3 +51,10 @@ export default function AnnouncementList() {
     </div>
   );
 }
+AnnouncementList.propTypes = {
+  user: PropTypes.string,
+};
+
+AnnouncementList.defaultProps = {
+  user: '',
+};
