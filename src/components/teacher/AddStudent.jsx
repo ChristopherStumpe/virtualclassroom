@@ -30,7 +30,7 @@ export default function AddStudent() {
       endTime,
       createdAt: date,
     };
-    console.log(formSubmit);
+    // console.log(formSubmit);
     alert('submitted');
     setShowForm(false);
   };

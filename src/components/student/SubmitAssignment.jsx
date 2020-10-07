@@ -7,7 +7,7 @@ export default function SubmitAssignment() {
 
   const submitAssignment = () => {
     // post request to server to add assignment
-    console.log(assignment);
+    // console.log(assignment);
     alert('submitted');
     setAssignment('');
     setShowForm(false);

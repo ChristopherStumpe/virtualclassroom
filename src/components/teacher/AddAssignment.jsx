@@ -18,7 +18,7 @@ export default function AddAssignment() {
       dueDate,
       createdAt: date,
     };
-    console.log(formSubmit);
+    // console.log(formSubmit);
     alert('submitted');
     setShowForm(false);
   };

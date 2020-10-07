@@ -2,20 +2,12 @@ import React, { useState, useEffect } from 'react';
 import TeachSplashScreen from './TeachSplashScreen';
 import StudSplashScreen from './StudSplashScreen';
 
-// on login click
-// direct users to a page based off of the type of user they are
-// check if they are a teacher or student
-// if teacher render teach splash screen
-// if student render student splash screen
-// redirect to log in and alert you are not a authorized _(fill in role)_
-// currently state changes to is logged in and is logged out on click
-
 export default function App() {
   const [view, setView] = useState('logout');
   const [data, setData] = useState(null);
 
   const grabData = () => new Promise((resolve) => {
-    console.log('grabData');
+    // console.log('grabData');
     const result = {
       user: 'teacher',
       id: 123,
@@ -28,7 +20,7 @@ export default function App() {
   });
 
   const handleLogInClick = () => {
-    console.log('login');
+    // console.log('login');
     const fetchData = async () => {
       const obj = await grabData();
       setData(obj);

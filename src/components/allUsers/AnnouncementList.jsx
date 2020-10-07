@@ -27,7 +27,7 @@ export default function AnnouncementList({ user }) {
 
   const fetchData = async () => {
     const result = await grabData();
-    console.log(result);
+    // console.log(result);
     setList(result);
   };
 
