@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import AnnouncementList from './allUsers/AnnouncementList';
 import AssignmentList from './allUsers/AssignmentList';
 import ClassList from './allUsers/ClassList';
+import StudentList from './teacher/StudentList';
 
 export default function TeachSplashScreen({ name, user }) {
   return (
@@ -15,6 +16,7 @@ export default function TeachSplashScreen({ name, user }) {
       <AnnouncementList user={user} />
       <AssignmentList user={user} />
       <ClassList user={user} />
+      <StudentList />
     </div>
   );
 }
