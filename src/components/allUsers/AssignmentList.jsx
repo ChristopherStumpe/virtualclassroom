@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import SubmitAssignment from '../student/SubmitAssignment';
+import AddAssignment from '../teacher/AddAssignment';
 
 export default function AssignmentList({ user }) {
   const [list, setList] = useState([]);
@@ -37,6 +38,7 @@ export default function AssignmentList({ user }) {
   return (
     <div>
       {user === 'student' && <SubmitAssignment />}
+      {user === 'teacher' && <AddAssignment />}
       {list.length > 0
         && (
         <ul>
