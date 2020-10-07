@@ -23,13 +23,15 @@ export default function AnnouncementList() {
   ];
   const grabData = () => data;
 
+  const fetchData = async () => {
+    const result = await grabData();
+    console.log(result);
+    setList(result);
+  };
+  
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await grabData;
-      setList(result);
-    };
     fetchData();
-  });
+  }, []);
   return (
     <div>
       {list.length > 0

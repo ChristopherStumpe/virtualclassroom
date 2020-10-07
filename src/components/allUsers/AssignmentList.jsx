@@ -22,14 +22,15 @@ export default function AssignmentList() {
     },
   ];
   const grabData = () => data;
+  
+  const fetchData = async () => {
+    const result = await grabData();
+    setList(result);
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await grabData;
-      setList(result);
-    };
     fetchData();
-  });
+  }, []);
   return (
     <div>
       {list.length > 0
