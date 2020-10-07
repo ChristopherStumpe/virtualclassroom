@@ -5,6 +5,7 @@ import AssignmentList from './allUsers/AssignmentList';
 import ClassList from './allUsers/ClassList';
 
 export default function StudSplashScreen({ name }) {
+  // const user = useState('student');
   return (
     <div>
       <h1>
@@ -13,7 +14,7 @@ export default function StudSplashScreen({ name }) {
         {name}
       </h1>
       <AnnouncementList />
-      <AssignmentList />
+      <AssignmentList user="student" />
       <ClassList />
     </div>
   );

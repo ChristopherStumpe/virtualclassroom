@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import _ from 'lodash';
+import PropTypes from 'prop-types';
+import SubmitAssignment from '../student/SubmitAssignment';
 
-export default function AssignmentList() {
+export default function AssignmentList({ user }) {
   const [list, setList] = useState([]);
   const data = [
     {
@@ -22,7 +24,7 @@ export default function AssignmentList() {
     },
   ];
   const grabData = () => data;
-  
+
   const fetchData = async () => {
     const result = await grabData();
     setList(result);
@@ -31,8 +33,10 @@ export default function AssignmentList() {
   useEffect(() => {
     fetchData();
   }, []);
+
   return (
     <div>
+      {user === 'student' && <SubmitAssignment />}
       {list.length > 0
         && (
         <ul>
@@ -47,3 +51,10 @@ export default function AssignmentList() {
     </div>
   );
 }
+AssignmentList.propTypes = {
+  user: PropTypes.string,
+};
+
+AssignmentList.defaultProps = {
+  user: '',
+};
