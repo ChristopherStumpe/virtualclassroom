@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server/index.js",
-    "pretest": "./node_modules/.bin/eslint --ignore .gitignore",
+    "pretest": "./node_modules/.bin/eslint",
     "test-db": "node server/test/test.js",
     "dev": "webpack -d --watch",
     "build": "webpack -p"

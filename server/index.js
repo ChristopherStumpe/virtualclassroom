@@ -1,15 +1,17 @@
 /* eslint-disable no-console */
+
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
 
 const app = express();
-const cookieSession = require('cookie-session');
-const passport = require('passport');
-require('./auth/passport.setup');
-const { isLoggedIn } = require('./auth/verifyLogIn');
-require('dotenv').config();
+const cookieSession = require("cookie-session");
+const passport = require("passport");
+const models = require('./db/models/index');
+require("./auth/passport.setup");
+const { isLoggedIn } = require("./auth/verifyLogIn");
+require("dotenv").config();
 
 // Cookies and Session info
 app.use(
@@ -29,9 +31,6 @@ app.use(express.json());
 // const { teacherRouter } = require('./routes/student');
 // const { studentRouter } = require('./routes/teacher');
 const passportRouter = require('./auth/routes');
-
-// Database
-// require('./db/db');
 
 const PORT = process.env.SERVER_PORT || 8080;
 
@@ -66,6 +65,25 @@ app.get('/logout', (req, res) => {
   res.redirect('/'); // send them to where is needed
 });
 
+const connection = async() => {
+  try {
+    await models.sequelize.authenticate();
+    console.log('Connection has been established successfully.');
+  } catch (error) {
+    console.error('Unable to connect to the database:', error);
+  }
+};
+const syncModels = async() => {
+  try {
+    await models.sequelize.sync({ foce: true });
+    console.log('Models have been synced successfully.');
+  } catch (error) {
+    console.error('Unable to sync models:', error);
+  }
+};
+
+connection();
+syncModels();
 app.listen(PORT, () => {
   console.log(`🌌Server has started on port: 🚀${PORT}`);
 });
