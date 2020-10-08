@@ -35,9 +35,9 @@ CREATE TABLE "class" (
 
 CREATE TABLE "assignment" (
   "id" SERIAL PRIMARY KEY,
-  "assignment_title" varchar,
+  "assignment_name" varchar,
   "description" varchar,
-  "due_date" time,
+  "due_date" DATE,
   "release_time" VARCHAR,
   "created_at" timestamp
 );
