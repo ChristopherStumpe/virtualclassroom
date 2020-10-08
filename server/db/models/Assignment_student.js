@@ -1,22 +1,12 @@
-module.exports = (sequelize, DataTypes) => sequelize.define('assignment_student', {
-    id_assignment: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: 'assignment',
-      key: 'id',
+/* eslint-disable camelcase */
+module.exports = (sequelize, DataTypes) => {
+  const Assignment_student = sequelize.define('assignment_student', {
+    drive_url: {
+      type: DataTypes.STRING,
     },
-  },
-  id_student: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: 'student',
-      key: 'id',
-    },
-  },
-  drive_url: {
-    type: DataTypes.STRING,
-  },
-}, {
-  freezeTableName: true,
-  timestamps: true,
-});
+  }, {
+    freezeTableName: true,
+  });
+
+  return Assignment_student;
+};
