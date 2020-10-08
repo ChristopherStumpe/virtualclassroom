@@ -16,9 +16,9 @@ require("dotenv").config();
 // Cookies and Session info
 app.use(
   cookieSession({
-    name: "user",
+    name: 'user',
     keys: [process.env.COOKIE_SESSION_KEY],
-  })
+  }),
 );
 
 // middleware
@@ -30,7 +30,7 @@ app.use(express.json());
 // Routers
 // const { teacherRouter } = require('./routes/student');
 // const { studentRouter } = require('./routes/teacher');
-const passportRouter = require("./auth/routes");
+const passportRouter = require('./auth/routes');
 
 const PORT = process.env.SERVER_PORT || 8080;
 
@@ -49,20 +49,20 @@ app.get('/', (req, res) => {
 // Routes //
 // app.use('/teacher', teacherRouter);
 // app.use('/student', studentRouter);
-app.use("/auth/google", passportRouter);
+app.use('/auth/google', passportRouter);
 
-app.get("/", (req, res) => {
-  res.send("you are not logged in");
+app.get('/', (req, res) => {
+  res.send('you are not logged in');
 });
 
-app.get("/account", isLoggedIn, (req, res) => {
-  res.send("you are logged in");
+app.get('/account', isLoggedIn, (req, res) => {
+  res.send('you are logged in');
 });
 
-app.get("/logout", (req, res) => {
-  req.session = null; //destory the session
+app.get('/logout', (req, res) => {
+  req.session = null; // destory the session
   req.logOut(); // logout from passport
-  res.redirect("/"); // send them to where is needed
+  res.redirect('/'); // send them to where is needed
 });
 
 const connection = async() => {
