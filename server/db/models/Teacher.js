@@ -1,18 +1,22 @@
-module.exports = (sequelize, DataTypes) => sequelize.define('teacher', {
-  full_name: {
-    type: DataTypes.STRING,
-  },
-  id_school: {
-    type: DataTypes.INTEGER,
-    references: {
-      model: 'school',
-      key: 'id',
+module.exports = (sequelize, DataTypes) => {
+  const Teacher = sequelize.define('teacher', {
+    full_name: {
+      type: DataTypes.STRING,
+      unique: true,
     },
-  },
-  email: {
-    type: DataTypes.STRING,
-  },
-}, {
-  freezeTableName: true,
-  timestamps: true,
-});
+    email: {
+      type: DataTypes.STRING,
+      unique: true,
+    },
+  }, {
+    freezeTableName: true,
+  });
+
+  Teacher.associate = (models) => {
+    Teacher.belongsTo(models.School, {
+      foreignKey: 'id_school',
+    });
+  };
+
+  return Teacher;
+};
