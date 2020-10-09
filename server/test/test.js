@@ -27,9 +27,9 @@ function primeDB() {
     })
     .then(() => Student.findOrCreate({
       where: {
-        full_name: 'Jimmy Fallon',
+        full_name: 'Brianna Skinner',
         id_school: 1,
-        email: 'JFallon@HHS.edu',
+        email: 'bri.skinner02@gmail.com',
       },
     }))
     .then((numberEffected) => {
@@ -40,9 +40,9 @@ function primeDB() {
     })
     .then(() => Teacher.findOrCreate({
       where: {
-        full_name: 'George Washington',
+        full_name: 'Brianna Skinner',
         id_school: 1,
-        email: 'GWashington@HHS.edu',
+        email: 'bri.skinner02@gmail.com',
       },
     }))
     .then((numberEffected) => {
@@ -145,138 +145,138 @@ function primeDB() {
       }
       return console.error('❌save undefined');
     })
-    .then(() => Student.findOrCreate({
-      where: {
-        full_name: 'Jimmy Kimmel',
-        id_school: 1,
-        email: 'JKimmeln@HHS.edu',
-      },
-    }))
-    .then((numberEffected) => {
-      if (numberEffected) {
-        return console.log('✅ Student Created');
-      }
-      return console.error('❌save undefined');
-    })
-    .then(() => Teacher.findOrCreate({
-      where: {
-        full_name: 'Abraham Lincoln',
-        id_school: 1,
-        email: 'ALincoln@HHS.edu',
-      },
-    }))
-    .then((numberEffected) => {
-      if (numberEffected) {
-        return console.log('✅ Teacher Created');
-      }
-      return console.error('❌save undefined');
-    })
-    .then(() => Class.findOrCreate({
-      where: {
-        class_name: 'US History II',
-        period: 2,
-        start_time: '9:00 AM',
-        end_time: '10:00 AM',
-        id_school: 1,
-        id_teacher: 2,
-      },
-    }))
-    .then((numberEffected) => {
-      if (numberEffected) {
-        return console.log('✅ Class Created');
-      }
-      return console.error('❌save undefined');
-    })
-    .then(() => Student_class.findOrCreate({
-      where: {
-        id_class: 2,
-        id_student: 2,
-      },
-    }))
-    .then((numberEffected) => {
-      if (numberEffected) {
-        return console.log('✅ Class/Student Association Created');
-      }
-      return console.error('❌save undefined');
-    })
-    .then(() => Student_class.findOrCreate({
-      where: {
-        id_class: 1,
-        id_student: 2,
-      },
-    }))
-    .then((numberEffected) => {
-      if (numberEffected) {
-        return console.log('✅ Class/Student Association Created');
-      }
-      return console.error('❌save undefined');
-    })
-    .then(() => Announcement.findOrCreate({
-      where: {
-        id: 2,
-        announcement_title: 'Pep Rally Thursday',
-        description: 'Bring Spirit!',
-        release_time: 'end of day',
-        expiration_date: 'end of week',
-      },
-    }))
-    .then((numberEffected) => {
-      if (numberEffected) {
-        return console.log('✅ Announcement Created');
-      }
-      return console.error('❌save undefined');
-    })
-    .then(() => Assignment.findOrCreate({
-      where: {
-        assignment_name: 'Who was the worst US President?',
-        description: '3 pages, long-form',
-        release_time: 'start of class',
-        due_date: '2001-10-29',
-      },
-    }))
-    .then((numberEffected) => {
-      if (numberEffected) {
-        return console.log('✅ Assignment Created');
-      }
-      return console.error('❌save undefined');
-    })
-    .then(() => Assignment_class.findOrCreate({
-      where: {
-        id_assignment: 2,
-        id_class: 2,
-      },
-    }))
-    .then((numberEffected) => {
-      if (numberEffected) {
-        return console.log('✅ Assignment_class association Created');
-      }
-      return console.error('❌save undefined');
-    })
-    .then(() => Assignment_student.findOrCreate({
-      where: {
-        id_assignment: 2,
-        id_student: 2,
-        drive_url: 'myDrive@google.com',
-      },
-    }))
-    .then((numberEffected) => {
-      if (numberEffected) {
-        return console.log('✅ Assignment_student associationCreated');
-      }
-      return console.error('❌save undefined');
-    })
-    .then(() => Announcement_class.findOrCreate({
-      where: {
-        id_announcement: 2,
-        id_class: 2,
-      },
-    }))
-    .then((numberEffected) => {
-      if (numberEffected) {
-        return console.log('✅ Announcement_class association Created');
-      }
-      return console.error('❌save undefined');
-    })
+    // .then(() => Student.findOrCreate({
+    //   where: {
+    //     full_name: 'Jimmy Kimmel',
+    //     id_school: 1,
+    //     email: 'JKimmeln@HHS.edu',
+    //   },
+    // }))
+    // .then((numberEffected) => {
+    //   if (numberEffected) {
+    //     return console.log('✅ Student Created');
+    //   }
+    //   return console.error('❌save undefined');
+    // })
+    // .then(() => Teacher.findOrCreate({
+    //   where: {
+    //     full_name: 'Abraham Lincoln',
+    //     id_school: 1,
+    //     email: 'ALincoln@HHS.edu',
+    //   },
+    // }))
+    // .then((numberEffected) => {
+    //   if (numberEffected) {
+    //     return console.log('✅ Teacher Created');
+    //   }
+    //   return console.error('❌save undefined');
+    // })
+    // .then(() => Class.findOrCreate({
+    //   where: {
+    //     class_name: 'US History II',
+    //     period: 2,
+    //     start_time: '9:00 AM',
+    //     end_time: '10:00 AM',
+    //     id_school: 1,
+    //     id_teacher: 2,
+    //   },
+    // }))
+    // .then((numberEffected) => {
+    //   if (numberEffected) {
+    //     return console.log('✅ Class Created');
+    //   }
+    //   return console.error('❌save undefined');
+    // })
+    // .then(() => Student_class.findOrCreate({
+    //   where: {
+    //     id_class: 2,
+    //     id_student: 2,
+    //   },
+    // }))
+    // .then((numberEffected) => {
+    //   if (numberEffected) {
+    //     return console.log('✅ Class/Student Association Created');
+    //   }
+    //   return console.error('❌save undefined');
+    // })
+    // .then(() => Student_class.findOrCreate({
+    //   where: {
+    //     id_class: 1,
+    //     id_student: 2,
+    //   },
+    // }))
+    // .then((numberEffected) => {
+    //   if (numberEffected) {
+    //     return console.log('✅ Class/Student Association Created');
+    //   }
+    //   return console.error('❌save undefined');
+    // })
+    // .then(() => Announcement.findOrCreate({
+    //   where: {
+    //     id: 2,
+    //     announcement_title: 'Pep Rally Thursday',
+    //     description: 'Bring Spirit!',
+    //     release_time: 'end of day',
+    //     expiration_date: 'end of week',
+    //   },
+    // }))
+    // .then((numberEffected) => {
+    //   if (numberEffected) {
+    //     return console.log('✅ Announcement Created');
+    //   }
+    //   return console.error('❌save undefined');
+    // })
+    // .then(() => Assignment.findOrCreate({
+    //   where: {
+    //     assignment_name: 'Who was the worst US President?',
+    //     description: '3 pages, long-form',
+    //     release_time: 'start of class',
+    //     due_date: '2001-10-29',
+    //   },
+    // }))
+    // .then((numberEffected) => {
+    //   if (numberEffected) {
+    //     return console.log('✅ Assignment Created');
+    //   }
+    //   return console.error('❌save undefined');
+    // })
+    // .then(() => Assignment_class.findOrCreate({
+    //   where: {
+    //     id_assignment: 2,
+    //     id_class: 2,
+    //   },
+    // }))
+    // .then((numberEffected) => {
+    //   if (numberEffected) {
+    //     return console.log('✅ Assignment_class association Created');
+    //   }
+    //   return console.error('❌save undefined');
+    // })
+    // .then(() => Assignment_student.findOrCreate({
+    //   where: {
+    //     id_assignment: 2,
+    //     id_student: 2,
+    //     drive_url: 'myDrive@google.com',
+    //   },
+    // }))
+    // .then((numberEffected) => {
+    //   if (numberEffected) {
+    //     return console.log('✅ Assignment_student associationCreated');
+    //   }
+    //   return console.error('❌save undefined');
+    // })
+    // .then(() => Announcement_class.findOrCreate({
+    //   where: {
+    //     id_announcement: 2,
+    //     id_class: 2,
+    //   },
+    // }))
+    // .then((numberEffected) => {
+    //   if (numberEffected) {
+    //     return console.log('✅ Announcement_class association Created');
+    //   }
+    //   return console.error('❌save undefined');
+    // })
     .catch((err) => {
       console.error(`❌${err}`);
     });
