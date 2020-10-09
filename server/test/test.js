@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-console */
+require('dotenv').config();
 
 const {
   Announcement,
@@ -27,9 +28,9 @@ function primeDB() {
     })
     .then(() => Student.findOrCreate({
       where: {
-        full_name: 'Brianna Skinner',
+        full_name: process.env.SEEDUSER,
         id_school: 1,
-        email: 'bri.skinner02@gmail.com',
+        email: process.env.SEEDEMAIL,
       },
     }))
     .then((numberEffected) => {
@@ -40,9 +41,9 @@ function primeDB() {
     })
     .then(() => Teacher.findOrCreate({
       where: {
-        full_name: 'Brianna Skinner',
+        full_name: process.env.SEEDUSER,
         id_school: 1,
-        email: 'bri.skinner02@gmail.com',
+        email: process.env.SEEDEMAIL,
       },
     }))
     .then((numberEffected) => {
